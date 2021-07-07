@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>深拷贝</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    /*  function Person(uname, age) {
+         this.name = uname;
+         this.age = age;
+         this.girlFriend = {
+             nickname: 'xiaohong'
+         };
+         this.hobby = ['吃饭', '睡觉']
+     }
+     var p1 = new Person('deng', 20)
+ 
+     function deep(data) {
+         //拷贝p1
+         var newObj = {}
+         for (k in data) {
+             if (typeof data[k] == 'object') {
+                 newObj[k] = deep(data[k])
+             } else {
+                 newObj[k] = data[k]
+             }
+         }
+         return newObj
+     }
+     var p2 = deep(p1)
+     p2.name='haha'
+     p2.girlFriend.nickname = 'lala'
+     console.log(p1);
+     console.log(p2); */
+
+
+
+    var Person = {
+        name: 'dengdeng',
+        age: 20,
+        girlFriend: {
+            nickname: 'xiaohong'
+        },
+        hobby: ['吃饭', '睡觉']
+    }
+
+    //console.log(Person);
+    var newObj = {}
+    function deep(data) {
+        //拷贝p1
+        for (k in data) {
+            if (typeof data[k] == 'object') {
+                newObj[k] = deep(data[k])
+            } else {
+                newObj[k] = data[k]
+            }
+        }
+        return newObj
+    }
+    deep(Person)
+    newObj.name = 'haha'
+    newObj.girlFriend.nickname = 'lala'
+    console.log(Person);
+    console.log(newObj);
+
+</script>
