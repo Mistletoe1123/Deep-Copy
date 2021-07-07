@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>浅拷贝</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    function Str() {
+        this.age = 20,
+            this.son = {
+                nickname: '小明'
+            }
+    }
+    let o1 = new Str()
+    o1.name = '李磊'
+
+    //拷贝
+    let o2 = {}
+    /*  for (k in o1) {
+         o2[k] = o1[k]
+     } */
+    /*  o2 = { ...o1 } */
+    o2 = Object.assign(o2, o1)
+    o2.name = '大雄'
+
+    o2.son.nickname = '哆啦'//两个都是哆啦
+    console.log(o1);
+    console.log(o2);
+
+</script>
